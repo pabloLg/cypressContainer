@@ -1,0 +1,18 @@
+{
+  "baseUrl" : "https://pokeapi.co/",
+  "baseApi": "https://pokeapi.co/api/v2/",
+  "defaultCommandTimeout": 10000,
+  "responseTimeout" : 20000,
+  "pageLoadTimeout": 30000,
+  "requestTimeout":30000,
+  "chromeWebSecurity": false,
+  "ignoreTestFiles": ["**/step_definitions/ui/*.js","**/step_definitions/api/*.js","**/resources/*.module.js"],
+  "allureResultsPath": "cypress/reports/allure-results",
+  "allure":true,
+  "video":true,
+  "env": {   
+    "allureResultsPath": "cypress/reports/allure-results",  
+    "allure":true
+  }
+ 
+}
