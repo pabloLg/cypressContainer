@@ -8,7 +8,7 @@ Scenario Outline: User should be able to navigate to the about section
 Given User navigates to pokeapi with "<device>"
 When clicks in about section
 Then user should see "<question>"
-Examples:
+Examples:   
     |   device      |question      |
     |   browser     |What is this? |
 

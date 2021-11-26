@@ -41,10 +41,27 @@ function getConfigurationByFile(file) {
 const AllureWriter = require('@shelex/cypress-allure-plugin/writer')
 const cucumber = require('cypress-cucumber-preprocessor').default
 const {addMatchImageSnapshotPlugin} = require('cypress-image-snapshot/plugin')
-
+const {lighthouse, pa11y, prepareAudit} = require('cypress-audit');
+const ReportGenerator = require('lighthouse/report/generator/report-generator');
 module.exports = (on, config) => {
+	
 	on('file:preprocessor', cucumber())
 	AllureWriter(on, config)
 	addMatchImageSnapshotPlugin(on, config)
 	
+
+	//#region  LightHouse config
+	on(`before:browser:launch`, (browser = {}, launchOptions) => {
+		prepareAudit(launchOptions);
+		return launchOptions;
+	});
+
+	on('task', {
+
+        lighthouse: lighthouse(lighthouseReport => {
+			fs.writeFileSync('cypress/reports/searchreport.html', ReportGenerator.generateReport(lighthouseReport.lhr, 'html')); 
+        }),
+        pa11y: pa11y(),
+    });
+	//#endregion
 }

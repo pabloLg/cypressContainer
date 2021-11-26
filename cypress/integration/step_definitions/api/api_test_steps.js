@@ -11,3 +11,4 @@ Given(/^Poke Api pokemon "([^"]*)" is requested$/, (poke) => {
 Then(/^poke response should contain status "([^"]*)"$/, (status) => {
 	checkStatusCode('@pokemon',status)
 });
+
