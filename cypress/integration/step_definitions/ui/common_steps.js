@@ -2,7 +2,7 @@
 
 import {Given,Then,When} from 'cypress-cucumber-preprocessor/steps'
 import {validateQuestion} from '../../../support/actions/AboutSection'
-import {clickOnAboutLink} from '../../../support/actions/HomePage'
+import {clickOnAboutLink,about} from '../../../support/actions/HomePage'
 
 Given(/^User navigates to pokeapi with "([^"]*)"$/, (device) => {
 	switch (device) {
@@ -18,22 +18,12 @@ Given(/^User navigates to pokeapi with "([^"]*)"$/, (device) => {
 
 When(/^clicks in about section$/, () => {	
 	clickOnAboutLink()
+	//cy.get(about).click();
 });
 
 Then(/^user should see "([^"]*)"$/, (question) => {
 	validateQuestion(question);
 });
-
-
-Given(/^User login usf with "([^"]*)"$/, (args1) => {
-	cy.viewport(1440, 900)
-	cy.visit('https://ecomr4-sit.ama-nonprod.usfoods.com/')
-	cy.get('#username-input > .native-input').type('R4tmid5')
-	cy.get('#password-input > .native-input').type('Welcome20')
-	cy.get('.buttonL').click({force:true})
-	cy.wait(2000)
-});
-
 
 
 Then(/^audit page with LightHouse$/, () => {
@@ -56,6 +46,6 @@ Then(/^audit page with LightHouse$/, () => {
 	cy.lighthouse(customThresholds, desktopConfig);
 	
 	
-	//cy.exec('npm run lighthouse https://ecomr4-sit.ama-nonprod.usfoods.com/desktop/home')
+	
 });
 
