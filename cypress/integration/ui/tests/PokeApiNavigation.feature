@@ -11,4 +11,4 @@ Then user should see "<question>"
 Examples:   
     |   device      |question      |
     |   browser     |What is this? |
-
+    |   iphone      |What is this? |

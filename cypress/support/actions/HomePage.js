@@ -1,4 +1,9 @@
+// Locator
+export var about = '[href="/about"]'
+
+
+// Action
 export function clickOnAboutLink() {
-    cy.get('[href="/about"]').click()
+    cy.get(about).click()
 	
 }
