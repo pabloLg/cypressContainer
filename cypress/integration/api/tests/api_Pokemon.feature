@@ -10,5 +10,5 @@ Feature: Pokemon api
     Then poke response should contain status "<status>"    
     Examples:
       | pokemon    |status   |
-      | ditto      |200   |
+      | ditto      |200      |
    

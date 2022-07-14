@@ -7,6 +7,7 @@
     "test": "npx cypress run --env allure=true ",
     "pretest": "node delete-results.js",
     "report": "node report.js",
+    "test-ui": "npx cypress run",
     "test-report": "npm run pretest;npm run test; npm run report ",
     "lighthouse": "lighthouse --config-path=lighthouse-config.js"
   },
